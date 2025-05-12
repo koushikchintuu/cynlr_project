@@ -103,10 +103,10 @@ function init3DConfigurator() {
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x0f1a45); // Deep blue background to match our theme
     
-    // Camera
+    // Camera - adjusted for better visibility on all environments
     const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.z = 9.0;  // Increased from 2.7 to move camera farther away
-    camera.position.y = 4.8;  // Increased from 1.2 to position camera higher to see more of the model
+    camera.position.z = 5.0;  // Reduced from 9.0 to bring camera closer
+    camera.position.y = 3.0;  // Reduced from 4.8 to lower camera position
     
     // Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -123,6 +123,7 @@ function init3DConfigurator() {
     controls.maxDistance = 10;
     controls.minPolarAngle = 0.2;
     controls.maxPolarAngle = Math.PI / 2;
+    controls.target.set(0, 1.0, 0); // Set the orbit target to look at the center of the model
     
     // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
@@ -162,16 +163,17 @@ function init3DConfigurator() {
             }
         });
         
-        // Center the model
+        // Center the model with fixed positioning that works on all environments
         const box = new THREE.Box3().setFromObject(model);
         const center = box.getCenter(new THREE.Vector3());
-        model.position.sub(center);
-        model.position.y = 0; // Place it on the ground
         
-        // Scale model to fit in view
+        // Instead of subtracting the center, set the position explicitly
+        model.position.set(-center.x, -center.y + 0.5, -center.z); // +0.5 to raise it slightly above ground
+        
+        // Scale model to fit in view - smaller scale to make it more visible
         const size = box.getSize(new THREE.Vector3());
         const maxDim = Math.max(size.x, size.y, size.z);
-        const scale = 3 / maxDim;
+        const scale = 2.5 / maxDim; // Slightly smaller scale (3 → 2.5)
         model.scale.set(scale, scale, scale);
         
         // Set initial color
