@@ -32,9 +32,7 @@ CynLr's website showcases cutting-edge visual intelligence technology for roboti
   * GIF & text preview for Object Awareness
   * PDF & text preview for Micro-factories
 
-<p align="center">
-  <img src="screenshots/hover-previews.png" alt="Hover Link Previews" width="600">
-</p>
+
 
 ### 🤖 3D Robot Configurator
 * Interactive Three.js powered 3D model visualization
@@ -52,9 +50,7 @@ CynLr's website showcases cutting-edge visual intelligence technology for roboti
 * Autoplay and loop functionality for continuous display
 * Optimized loading and performance
 
-<p align="center">
-  <img src="screenshots/video-background.png" alt="Video Background" width="600">
-</p>
+
 
 ### 🖼️ Modern Gallery
 * Vertical scrolling image gallery with reveal animations
@@ -62,9 +58,7 @@ CynLr's website showcases cutting-edge visual intelligence technology for roboti
 * Staggered layout with alternating image positioning
 * Elegant text and image combinations
 
-<p align="center">
-  <img src="screenshots/gallery-section.png" alt="Image Gallery" width="600">
-</p>
+
 
 ## 🎨 Design Elements
 
@@ -74,9 +68,7 @@ CynLr's website showcases cutting-edge visual intelligence technology for roboti
 * Purple highlights for interactive components
 * Clean white text for optimal readability
 
-<p align="center">
-  <img src="screenshots/color-theme.png" alt="Color Theme" width="400">
-</p>
+
 
 ### Visual Effects
 * Glass-morphism panels with backdrop filters
@@ -90,11 +82,6 @@ The website is fully responsive and optimized for:
 * Tablets (768px - 1199px)
 * Mobile devices (< 768px)
 
-<div align="center">
-  <img src="screenshots/responsive-mobile.png" alt="Mobile View" width="200">
-  <img src="screenshots/responsive-tablet.png" alt="Tablet View" width="300">
-  <img src="screenshots/responsive-desktop.png" alt="Desktop View" width="400">
-</div>
 
 ## 📂 Project Structure
 
