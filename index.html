@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CynLr - Visual Intelligence for Robotic Arms</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <style>
+        body {
+            background-color: var(--deep-blue);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">CynLr</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#configurator">3D Configurator</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/7oI1Pud8UT4?autoplay=1&mute=1&loop=1&playlist=7oI1Pud8UT4&controls=0&showinfo=0&rel=0" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="hero-content">
+            <h1>Visual Intelligence for Robotic Arms</h1>
+            <p>Enabling robots to perform Picking, Orienting & Placing of objects</p>
+            <div class="button-container">
+                <a href="#about" class="interactive-button">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About CynLr</h2>
+        <div class="text-content">
+            <p>Today, even a simple task of putting a screw into a screw hole without slipping a thread remains non-automatable across the globe. Imagine what it would take for a robot to assemble a Smartphone or a car by putting together 1000s of parts of varied shapes and weights presented in random orientations.</p>
+            
+            <div class="hover-button-container">
+                <button class="hover-me-button">Hover Me ↓</button>
+            </div>
+            
+            <p>We at <span class="hover-link" data-target="about.html">CynLr</span>, build the missing pieces of <span class="hover-link" data-target="visual-intelligence.html">Visual Intelligence</span> for Robotic Arms to make them <span class="hover-link" data-target="object-aware.html">Object aware</span> to manipulate with superior agility - adapting to the varying shapes, orientations and weights of the object. This we envision could simplify and standardize large, customized factory lines into <span class="hover-link" data-target="micro-factories.html">LEGO blocks of microfactories</span>.</p>
+        </div>
+    </section>
+
+    <section id="configurator" class="configurator">
+        <h2>3D Robot Configurator</h2>
+        <div class="configurator-container">
+            <div id="model-viewer"></div>
+            <div class="controls">
+                <div class="tabs">
+                    <div class="tab active" data-tab="colors">Paint</div>
+                    <div class="tab" data-tab="wheels">Accessories</div>
+                    <div class="tab" data-tab="interior">Features</div>
+                </div>
+                
+                <div class="tab-content active" id="colors-tab">
+                    <h3>Select Robot Color</h3>
+                    <div class="color-options">
+                        <button class="color-btn active" style="background-color: #ff5252;" data-color="0xff5252">
+                            <span class="color-name">Ruby Red</span>
+                        </button>
+                        <button class="color-btn" style="background-color: #4caf50;" data-color="0x4caf50">
+                            <span class="color-name">Emerald</span>
+                        </button>
+                        <button class="color-btn" style="background-color: #2196f3;" data-color="0x2196f3">
+                            <span class="color-name">Azure Blue</span>
+                        </button>
+                        <button class="color-btn" style="background-color: #ffeb3b;" data-color="0xffeb3b">
+                            <span class="color-name">Solar Yellow</span>
+                        </button>
+                        <button class="color-btn" style="background-color: #9c27b0;" data-color="0x9c27b0">
+                            <span class="color-name">Cosmic Purple</span>
+                        </button>
+                        <button class="color-btn" style="background-color: #607d8b;" data-color="0x607d8b">
+                            <span class="color-name">Steel Gray</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="wheels-tab">
+                    <h3>Robot Accessories</h3>
+                    <p>Select additional accessories for your model:</p>
+                    <div class="accessories-options">
+                        <div class="option-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="accessory" value="premium"> 
+                                Premium Package
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="accessory" value="performance"> 
+                                Performance Kit
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="accessory" value="lighting"> 
+                                Advanced Lighting
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="interior-tab">
+                    <h3>Robot Features</h3>
+                    <p>Customize additional features:</p>
+                    <div class="interior-options">
+                        <div class="option-group">
+                            <label class="radio-label">
+                                <input type="radio" name="feature" value="standard" checked> 
+                                Standard
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="feature" value="premium"> 
+                                Premium
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="feature" value="deluxe"> 
+                                Deluxe
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary">
+                    <h4>Configuration Summary</h4>
+                    <div class="summary-items">
+                        <div class="summary-item">
+                            <span>Model:</span>
+                            <span>CynLr Robot X1</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Color:</span>
+                            <span id="selected-color">Ruby Red</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Accessories:</span>
+                            <span id="selected-accessories">None</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Features:</span>
+                            <span id="selected-features">Standard</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2>Picture Gallery</h2>
+        <div class="gallery-container">
+            <div class="gallery-wrapper">
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="img1.webp" alt="CynLr Technology">
+                    </div>
+                    <div class="text-container">
+                        <h3>Visual Intelligence</h3>
+                        <p>Our cutting-edge visual recognition technology enables robots to perceive and understand objects in real-time. Using advanced computer vision algorithms and neural networks, our systems can identify, track, and analyze complex objects even in challenging environments.</p>
+                        <a href="#" class="gallery-button">Learn More</a>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="img2.webp" alt="Robotic Manipulation">
+                    </div>
+                    <div class="text-container">
+                        <h3>Robotic Manipulation</h3>
+                        <p>Advanced gripping technology allows precise handling of varied objects regardless of shape or orientation. Our robotic arms can adapt to new objects and environments without reprogramming, making them ideal for flexible manufacturing environments.</p>
+                        <a href="#" class="gallery-button">Explore</a>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="img3.webp" alt="Factory Automation">
+                    </div>
+                    <div class="text-container">
+                        <h3>Factory Automation</h3>
+                        <p>Transforming manufacturing with modular, intelligent robotic systems. Our solutions integrate seamlessly with existing factory infrastructure while providing unprecedented flexibility and adaptability for evolving production needs.</p>
+                        <a href="#" class="gallery-button">Discover</a>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="img1.webp" alt="Object Recognition">
+                    </div>
+                    <div class="text-container">
+                        <h3>Object Recognition</h3>
+                        <p>Our systems can identify and categorize objects in real-time with exceptional accuracy. Using multi-modal sensing techniques, our robots can perceive object properties beyond visual appearance, including texture, weight, and material composition.</p>
+                        <a href="#" class="gallery-button">View Details</a>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="img2.webp" alt="Adaptive Learning">
+                    </div>
+                    <div class="text-container">
+                        <h3>Adaptive Learning</h3>
+                        <p>CynLr robots continuously improve through machine learning and adaptive algorithms. Our systems build comprehensive knowledge bases of objects and manipulation strategies, becoming more efficient and reliable with each operation.</p>
+                        <a href="#" class="gallery-button">See More</a>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="img3.webp" alt="Future of Manufacturing">
+                    </div>
+                    <div class="text-container">
+                        <h3>Future of Manufacturing</h3>
+                        <p>Creating the building blocks for next-generation automated production systems. Our vision is to transform rigid manufacturing lines into flexible, reconfigurable systems that can adapt to changing production needs and market demands.</p>
+                        <a href="#" class="gallery-button">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-navigation">
+                <button class="prev-btn">&lt;</button>
+                <button class="next-btn">&gt;</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 CynLr. All rights reserved.</p>
+    </footer>
+
+    <div class="preview-container">
+        <div class="preview-content"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

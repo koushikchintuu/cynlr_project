@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Left Half Ring with 3 Gapped Sections</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f0f0f0;
+    }
+
+    .button-wrapper {
+      position: relative;
+      width: 120px;
+      height: 120px;
+    }
+
+    .hover-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 480px;
+      height: 480px;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.3s ease;
+      z-index: 0;
+    }
+
+    .button-wrapper:hover .hover-ring {
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    .segment {
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      clip-path: polygon(50% 50%, 0% 0%, 0% 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      padding-left: 80px;
+      transform-origin: center;
+    }
+
+    .segment-a {
+      background: #ff6b6b;
+      transform: rotate(-60deg);
+    }
+
+    .segment-b {
+      background: #ffa502;
+      transform: rotate(0deg);
+    }
+
+    .segment-c {
+      background: #2ed573;
+      transform: rotate(60deg);
+    }
+
+    /* Simulate 3px gaps by shrinking slightly */
+    .segment::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #f0f0f0; /* same as background */
+      transform: scale(0.985); /* adjust to create a visible gap */
+      z-index: -1;
+    }
+
+    .start-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      background-color: #4682b4;
+      border: 10px solid #87cefa;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      color: white;
+      cursor: pointer;
+      z-index: 1;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="button-wrapper">
+    <div class="hover-ring">
+      <div class="segment segment-a">A</div>
+      <div class="segment segment-b">B</div>
+      <div class="segment segment-c">C</div>
+    </div>
+    <div class="start-button">Start</div>
+  </div>
+</body>
+</html>
