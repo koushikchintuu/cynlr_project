@@ -334,14 +334,6 @@ h2::after {
     border: none;
     margin-bottom: 0;
     position: relative;
-    overflow: hidden;
-}
-
-#model-viewer canvas {
-    display: block;
-    width: 100% !important;
-    height: 100% !important;
-    outline: none;
 }
 
 #model-viewer::after {
@@ -835,20 +827,6 @@ footer {
     
     .gallery-wrapper {
         gap: 3rem;
-    }
-    
-    #model-viewer {
-        height: 400px;
-    }
-    
-    .configurator-container {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 480px) {
-    #model-viewer {
-        height: 350px;
     }
 }
 
