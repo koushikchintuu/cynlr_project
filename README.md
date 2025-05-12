@@ -126,7 +126,8 @@ To add the screenshots referenced in this README:
 
 ## 🔗 Live Demo
 
-[View Live Demo]((https://cynlr-project.vercel.app/)) (replace with your actual demo URL)
+[View Live Demo](https://cynlr-project.vercel.app/)
+
 
 ## 📄 License
 
